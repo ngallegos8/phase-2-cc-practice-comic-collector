@@ -22,6 +22,17 @@ function App() {
     setComics(newComics)
   }
 
+  function handleUpdateComic(newComic) {
+    const updatedComics = comics.map((comic) => {
+      if (comic.id === newComic.id) {
+        return newComic
+      } else {
+        return comic
+      }
+    })
+    setComics(updatedComics)
+  }
+
 
   return (
     <div className="App">
@@ -31,7 +42,7 @@ function App() {
       <div className="grid with-sidebar">
 
         <div className="flex-container">
-          <ComicsContainer comics={comics} removeComic={removeComic}/>
+          <ComicsContainer comics={comics} removeComic={removeComic} updateComic={handleUpdateComic}/>
         </div>
 
         <div className="sidebar">
